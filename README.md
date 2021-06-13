@@ -7,7 +7,7 @@ Web app in Python for managing private wallet, notes, reminders and others
 ### Use virtual environment
 
 ```bash
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate
 ```
 
