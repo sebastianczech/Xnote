@@ -14,7 +14,7 @@ source venv/bin/activate
 ### Upgrade pip
 
 ```bash
-python -m pip install --upgrade pip
+python3 -m pip install --upgrade pip
 ```
 
 ### Install Django
