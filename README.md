@@ -77,3 +77,27 @@ export DEBUG=True
 export SECRET_KEY=Secret
 # and more ...
 ```
+
+## Depenendencies
+
+Freeze currently installed packages:
+```bash
+pip freeze > requirements.txt
+```
+
+Install packages from file:
+```bash
+pip install -r requirements.txt
+```
+
+## Tests
+
+Start all tests:
+```bash
+pytest
+```
+
+Start all tests with coverage:
+```bash
+pytest --cov=patterns tests
+```
