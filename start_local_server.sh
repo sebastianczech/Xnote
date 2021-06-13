@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-cd xnote && python manage.py runserver
+source ./export_env.sh && cd xnote && python manage.py runserver

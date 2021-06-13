@@ -1,3 +1,6 @@
+# Environment variables
+export_env.sh
+
 # Pycharm
 .idea/
 
