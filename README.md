@@ -107,3 +107,14 @@ Start all tests with coverage:
 ```bash
 pytest --cov=patterns tests
 ```
+
+## Working with databases
+
+### Sqlite
+
+```bash
+sqlite3
+sqlite> .open db.sqlite3
+sqlite> .help
+sqlite> .tables
+```
