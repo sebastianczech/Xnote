@@ -40,6 +40,12 @@ django-admin startproject xnote
 cd xnote && python manage.py runserver
 ```
 
+### Create application in project
+
+```bash
+python manage.py startapp app
+```
+
 ## Environment variables (config vars)
 
 In git repository **ARE NOT STORED** sensitive variables:
