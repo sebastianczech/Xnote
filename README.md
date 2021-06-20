@@ -110,12 +110,31 @@ pytest --cov=patterns tests
 
 ## Working with databases
 
-### Models
+### Models and migrations
 
 ```bash
 python manage.py makemigrations
 python manage.py sqlmigrate app 0001
 python manage.py migrate
+```
+
+### Shell and API
+
+```bash
+python manage.py shell
+>>> from app.models import Log
+>>> Log.objects.all()
+<QuerySet []>
+>>> l = Log(type='note',info='test message')
+>>> l.save()
+>>> l.id
+1
+>>> l.info
+'test message'
+>>> l.type
+'note'
+>>> Log.objects.all()
+<QuerySet [<Log: test message>]>
 ```
 
 ### Sqlite
