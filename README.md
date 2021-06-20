@@ -110,6 +110,14 @@ pytest --cov=patterns tests
 
 ## Working with databases
 
+### Models
+
+```bash
+python manage.py makemigrations
+python manage.py sqlmigrate app 0001
+python manage.py migrate
+```
+
 ### Sqlite
 
 ```bash
