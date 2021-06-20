@@ -46,6 +46,12 @@ cd xnote && python manage.py runserver
 python manage.py startapp app
 ```
 
+### Administration
+
+```bash
+python manage.py createsuperuser
+```
+
 ## Environment variables (config vars)
 
 In git repository **ARE NOT STORED** sensitive variables:
