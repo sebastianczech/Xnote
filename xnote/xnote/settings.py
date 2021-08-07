@@ -129,3 +129,6 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Mongo
+MONGO_DB_URI = 'mongodb+srv://' + os.environ['MONGO_USER'] + ':' + os.environ['MONGO_PASSWORD'] + '@' + os.environ['MONGO_HOST'] + '?retryWrites=true&w=majority&ssl=true&ssl_cert_reqs=CERT_NONE'
