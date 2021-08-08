@@ -1,0 +1,127 @@
+{% extends 'base_navbar.html' %}
+
+{% block title %}Reminders{% endblock %}
+
+{% block content %}
+
+    {% load filter %}
+
+     <div class="row">
+        <div class="col s12">
+            <h5>Reminders</h5>
+        </div>
+     </div>
+
+    <div class="row">
+        <div class="col s10">
+            <div class="chip" id="reminders_group_all" style="background-color: #000000; color: #ffffff">
+                Wszystkie
+            </div>
+            {% for reminders_group in reminders_groups %}
+            <div class="chip" id="reminders_group_{{ reminders_group.id }}" style="background-color: {{ reminders_group.color }}; color: #ffffff">
+                {{ reminders_group.name }}
+                <a href="{% url 'reminder_group_edit' id=reminders_group.id %}" class="waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Edit reminder group"><i class="fa fa-pencil-square-o white-text" aria-hidden="true"></i></a>
+                <a href="{% url 'reminder_group_remove' id=reminders_group.id %}" class="waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Remove reminder group"><i class="fa fa-times white-text" aria-hidden="true"></i></a>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col s2">
+            <a href="{% url 'reminder_group_add' %}" class="modal-trigger btn-floating waves-effect waves-light tooltipped pulse right margin-left-right margin-top-bottom" data-position="bottom" data-delay="50" data-tooltip="New group of reminders"><i class="fa fa-cube" aria-hidden="true"></i></a>
+            <a href="{% url 'reminder_add' %}" class="modal-trigger btn-floating waves-effect waves-light tooltipped pulse right margin-left-right margin-top-bottom" data-position="bottom" data-delay="50" data-tooltip="New reminder"><i class="fa fa-square-o" aria-hidden="true"></i></a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+            <table id="table-as-dynamic-datatable" class="highlight responsive-table">
+                <thead class="grey-text">
+                    <tr>
+                        <th>Name <i>(click to edit)</i></th>
+                        <th>Group</th>
+                        <th>Do until</th>
+                        <th>Repeat</th>
+                        <th>Priority</th>
+                        <th>Modified</th>
+                        <th><i>Actions</i></th>
+                    </tr>
+                 </thead>
+                <tbody>
+                {% for reminder in reminders %}
+                    <tr class="{% if reminder.priority == 'high' %} red-text {% endif %} {% if reminder.priority == 'low' %} grey-text {% endif %}">
+                        <td>
+                            <a href="{% url 'reminder_edit' id=reminder.id %}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Show reminder">
+                                {{ reminder }}
+                            </a><br>
+                        </td>
+                        <td>
+                            {{ reminder.group }}
+                        </td>
+                        <td>
+                            {% if reminder.when %}
+                                {{ reminder.when | date:"Y-m-d H:i" | calculate_date_for_reminder_with_repeat:reminder.repeat }}
+                            {% else %}
+                                - - -
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if reminder.repeat %}
+                                {{ reminder.get_repeat_display }}
+                            {% else %}
+                                - - -
+                            {% endif %}
+                        </td>
+                        <td>
+                            {{ reminder.get_priority_display }}
+                        </td>
+                        <td class="no-line-break">
+                            {{ reminder.modified | date:"Y-m-d H:i" }}
+                        </td>
+                        <td>
+                            <a href="{% url 'reminder_add_to_calendar' id=reminder.id %}" class="waves-effect waves-light tooltipped margin-left-right" data-position="bottom" data-delay="50" data-tooltip="Add reminder to calendar"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i></a>
+                            <a href="{% url 'reminder_remove' id=reminder.id %}" class="waves-effect waves-light tooltipped " data-position="bottom" data-delay="50" data-tooltip="Remove reminder"><i class="fa fa-times" aria-hidden="true"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+     </div>
+     <!--<div class="row">-->
+        <!--<div class="col s12">-->
+            <!--<a href="{% url 'reminder_in_time' time='week' %}" class="modal-trigger btn-flat waves-effect waves-light tooltipped margin-left-right margin-top-bottom" data-position="bottom" data-delay="50" data-tooltip="In this week"><i class="fa fa-clock-o" aria-hidden="true"></i> This week</a>-->
+            <!--<a href="{% url 'reminder_in_time' time='month' %}" class="modal-trigger btn-flat waves-effect waves-light tooltipped margin-left-right margin-top-bottom" data-position="bottom" data-delay="50" data-tooltip="In this month"><i class="fa fa-clock-o" aria-hidden="true"></i> This month</a>-->
+            <!--<a href="{% url 'reminder_in_time' time='year' %}" class="modal-trigger btn-flat waves-effect waves-light tooltipped margin-left-right margin-top-bottom" data-position="bottom" data-delay="50" data-tooltip="In this year"><i class="fa fa-clock-o" aria-hidden="true"></i> This year</a>-->
+        <!--</div>-->
+     <!--</div>-->
+     <!--<div class="row">-->
+        <!--<div class="col s6">-->
+            <!--<div class="pagination">-->
+                <!--<span class="step-links valign-wrapper">-->
+                    <!--{% if reminders.has_previous %}-->
+                        <!--<a href="?page={{ reminders.previous_page_number }}" class="tooltipped fa-2x" data-position="bottom" data-delay="50" data-tooltip="Previous page"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>-->
+                    <!--{% endif %}-->
+
+                    <!--<span class="current-page">-->
+                        <!--{{ reminders.number }} / {{ reminders.paginator.num_pages }}-->
+                    <!--</span>-->
+
+                    <!--{% if reminders.has_next %}-->
+                        <!--<a href="?page={{ reminders.next_page_number }}" class="tooltipped fa-2x" data-position="bottom" data-delay="50" data-tooltip="Next page"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>-->
+                    <!--{% endif %}-->
+                <!--</span>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col s6">-->
+        <!--</div>-->
+     <!--</div>-->
+
+{% endblock %}
+
+{% block scripts %}
+
+{% load static %}
+
+<script type="text/javascript" src="{% static 'app/js/reminder.js' %}"></script>
+<script type="text/javascript" src="{% static 'app/js/datatable.js' %}"></script>
+
+{% endblock %}

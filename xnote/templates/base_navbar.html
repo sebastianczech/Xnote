@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block menu %}
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="/" class="brand-logo"><img src="{% static 'app/img/logo.png' %}"></a>
+          <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+          <!--<img src="{% static 'app/img/logo.png' %}" />-->
+          <ul class="right hide-on-med-and-down">
+              <li><a class="modal-trigger tooltipped" href="#search_box" data-position="bottom" data-delay="50" data-tooltip="Search"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+              <li><a class="tooltipped" href="/wallet" data-position="bottom" data-delay="50" data-tooltip="Wallet"><i class="fa fa-credit-card" aria-hidden="true"></i></a></li>
+              <li><a class="tooltipped" href="/calendar" data-position="bottom" data-delay="50" data-tooltip="Calendar"><i class="fa fa-calendar" aria-hidden="true"></i></a></li>
+              <li><a class="tooltipped" href="/reminder" data-position="bottom" data-delay="50" data-tooltip="Reminders"><i class="fa fa-clock-o" aria-hidden="true"></i></a></li>
+              <li><a class="tooltipped" href="/note" data-position="bottom" data-delay="50" data-tooltip="Notes"><i class="fa fa-sticky-note-o" aria-hidden="true"></i></a></li>
+              <li><a class="tooltipped" href="/log" data-position="bottom" data-delay="50" data-tooltip="Logs"><i class="fa fa-trash" aria-hidden="true"></i></a></li>
+              <li><a class="tooltipped" href="/admin" data-position="bottom" data-delay="50" data-tooltip="Admin"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
+              <li><a class="tooltipped" href="/oauth2revoke" data-position="bottom" data-delay="50" data-tooltip="Revoke"><i class="fa fa-lock" aria-hidden="true"></i></a></li>
+              <li><a class="tooltipped" href="/logout" data-position="bottom" data-delay="50" data-tooltip="Logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <ul class="side-nav" id="mobile-menu">
+      <li><a class="modal-trigger" href="#search_box"><i class="fa fa-search" aria-hidden="true"></i>Search</a></li>
+      <li><a href="/wallet"><i class="fa fa-credit-card" aria-hidden="true"></i>Wallet</a></li>
+      <li><a href="/calendar"><i class="fa fa-calendar" aria-hidden="true"></i>Calendar</a></li>
+      <li><a href="/reminder"><i class="fa fa-clock-o" aria-hidden="true"></i>Reminders</a></li>
+      <li><a href="/note"><i class="fa fa-sticky-note-o" aria-hidden="true"></i>Notes</a></li>
+      <li><a href="/log"><i class="fa fa-trash" aria-hidden="true"></i>Logs</a></li>
+      <li><a href="/admin"><i class="fa fa-cog" aria-hidden="true"></i>Admin</a></li>
+      <li><a href="/oauth2revoke"><i class="fa fa-lock" aria-hidden="true"></i>Revoke</a></li>
+      <li><a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
+    </ul>
+    <div id="search_box" class="modal">
+        <form method="post" action="/search/">
+          {% csrf_token %}
+          <div class="modal-content">
+              <div class="row">
+                    <div class="col s8">
+                        <h4>Search element</h4>
+                    </div>
+                    <div class="col s4">
+                        <a href="#!" class="modal-action modal-close waves-effect waves-light right"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
+                    </div>
+              </div>
+              <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" id="search_value" name="search_value">
+                        <label for="search_value">Search</label>
+                    </div>
+              </div>
+          </div>
+          <div class="modal-footer">
+              <div class="row">
+                    <div class="col s12">
+                        <button class="modal-action modal-close waves-effect waves-light btn" type="submit">Search</button>
+                    </div>
+              </div>
+          </div>
+        </form>
+    </div>
+
+{% endblock %}

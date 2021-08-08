@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -36,6 +37,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'app.apps.AppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -43,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mathfilters'
 ]
 
 MIDDLEWARE = [
@@ -60,7 +63,7 @@ ROOT_URLCONF = 'xnote.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,15 +79,45 @@ TEMPLATES = [
 WSGI_APPLICATION = 'xnote.wsgi.application'
 
 
+# # Import local settings
+# local_settings = False
+# try:
+#     from notes.local import use_sql_lite
+#     local_settings = use_sql_lite
+# except ImportError as e:
+#     pass
+
+
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# # production database on Heroku used on Heroku and local machines (but not for tests)
+# if 'test' not in sys.argv and local_settings is False:
+#     # PostgreSQL on Heroku
+#     # DATABASES['default'] =  dj_database_url.config()
+#     # PostgreSQL on Linuxpl.com
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql',
+#             'NAME': os.environ['PG_USER'],
+#             'USER': os.environ['PG_USER'],
+#             'PASSWORD': os.environ['PG_PASSWORD'],
+#             'HOST': os.environ['PG_HOST'],
+#             'PORT': '5432',
+#         }
+#     }
+# # default local SQLite used on local machine for tests
+# else:
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+# Mongo
+MONGO_DB_URI = 'mongodb+srv://' + os.environ['MONGO_USER'] + ':' + os.environ['MONGO_PASSWORD'] + '@' + os.environ['MONGO_HOST'] + '?retryWrites=true&w=majority&ssl=true&ssl_cert_reqs=CERT_NONE'
 
 
 # Password validation
@@ -124,11 +157,35 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'collectstatic')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Mongo
-MONGO_DB_URI = 'mongodb+srv://' + os.environ['MONGO_USER'] + ':' + os.environ['MONGO_PASSWORD'] + '@' + os.environ['MONGO_HOST'] + '?retryWrites=true&w=majority&ssl=true&ssl_cert_reqs=CERT_NONE'
+# Append slash to URL
+APPEND_SLASH = True
+
+# URLs for login and subsite
+FORCE_SCRIPT_NAME = '/'
+SUB_SITE = '/'
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+
+# Google OAuth2 settings
+GOOGLE_OAUTH2_CLIENT_SECRETS_JSON = 'client_secret.json'
+GOOGLE_OAUTH2_SCOPE = 'https://www.googleapis.com/auth/calendar'
+GOOGLE_OAUTH2_SCOPES = ['https://www.googleapis.com/auth/calendar']
+GOOGLE_OAUTH2_LOCAL_SERVER_PORT = 8484
+GOOGLE_OAUTH2_TOKEN_FILE = 'token.json'
+if 'runserver' not in sys.argv:
+    GOOGLE_OAUTH2_REDIRECT_URL = 'https://sebastianczech-notes.herokuapp.com/oauth2callback'
+    GOOGLE_OAUTH2_LOCAL_SERVER = 'sebastianczech-notes.herokuapp.com'
+else:
+    GOOGLE_OAUTH2_REDIRECT_URL = 'http://localhost:8000/oauth2callback'
+    GOOGLE_OAUTH2_LOCAL_SERVER = 'localhost'

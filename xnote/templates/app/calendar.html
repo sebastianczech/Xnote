@@ -1,0 +1,74 @@
+{% extends 'base_navbar.html' %}
+
+{% block title %}Calendar{% endblock %}
+
+{% load filter %}
+
+{% block content %}
+
+     <div class="row">
+        <div class="col s12">
+            <h5>Calendar</h5>
+        </div>
+     </div>
+
+     <div class="row">
+        <div class="col s12">
+              {% for item in calendarList.items %}
+              <div class="chip" style="background-color: {{ item.backgroundColor }}; color: #ffffff">
+                  {% if item.summary == 'sebaczech@gmail.com' %}
+                    Prywatny
+                  {% else %}
+                    {{ item.summary }}
+                  {% endif %}
+              </div>
+              {% endfor %}
+        </div>
+     </div>
+
+     <div class="row">
+         <div class="col s12">
+             <table class="highlight responsive-table">
+                 <thead class="blue-text">
+                    <tr>
+                        <th>Event</th>
+                        <th>Calendar</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                    </tr>
+                 </thead>
+                 <tbody>
+                {% for item in calendarEvents %}
+                    <tr style="color: {{ item.color }}">
+                        <td>
+                            {{ item.event }}
+                        </td>
+                        <td>
+                            {% if item.calendar == 'sebaczech@gmail.com' %}
+                                Prywatny
+                            {% else %}
+                                {{ item.calendar }}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {{ item.date }}
+                        </td>
+                        <td>
+                            {{ item.time }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                 </tbody>
+            </table>
+
+                  <!--{% if item.start.date|length > 0 %}-->
+                    <!--{{ item.start.date }}-->
+                  <!--{% else %}-->
+                    <!--{{ item.start.dateTime | datetime_iso_8601_to_datetime | date:"Y-m-d H:i"}}-->
+                  <!--{% endif %}-->
+
+        </div>
+     </div>
+
+
+{% endblock %}

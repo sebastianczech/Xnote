@@ -1,0 +1,221 @@
+{% extends 'base_navbar.html' %}
+
+{% block title %}Wallet{% endblock %}
+
+{% load mathfilters %}
+
+{% block content %}
+
+     <div class="row valign-wrapper">
+         <div class="col s6">
+            <h5>Wallet analytics</h5>
+         </div>
+         <div class="col s6">
+        </div>
+     </div>
+
+    <div class="row">
+        <div class="col s12">
+            <h5>Accounts sum grouped by currency, month and year</h5>
+            <table class="highlight responsive-table">
+                <thead class="blue-text">
+                <tr>
+                    <th>Total value</th>
+                    <th>Currency</th>
+                    <th>Month</th>
+                    <th>Year</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for wallet_account in wallet_accounts_sum_grouped_by_name_year_month %}
+                <tr>
+                    <td>
+                        {{ wallet_account.total_value }}
+                    </td>
+                    <td>
+                        {{ wallet_account.currency }}
+                    </td>
+                    <td>
+                        {{ wallet_account.month }}
+                    </td>
+                    <td>
+                        {{ wallet_account.year }}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+            <h5>Deposits sum grouped by currency, month and year</h5>
+            <table class="highlight responsive-table">
+                <thead class="green-text">
+                <tr>
+                    <th>Total value</th>
+                    <th>Currency</th>
+                    <th>Month</th>
+                    <th>Year</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for wallet_deposit in wallet_deposits_sum_grouped_by_name_year_month %}
+                <tr>
+                    <td>
+                        {{ wallet_deposit.total_value }}
+                    </td>
+                    <td>
+                        {{ wallet_deposit.currency }}
+                    </td>
+                    <td>
+                        {{ wallet_deposit.month }}
+                    </td>
+                    <td>
+                        {{ wallet_deposit.year }}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+            <h5>Credits sum grouped by currency, month and year</h5>
+            <table class="highlight responsive-table">
+                <thead class="red-text">
+                <tr>
+                    <th>Total value</th>
+                    <th>Currency</th>
+                    <th>Month</th>
+                    <th>Year</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for wallet_credit in wallet_credits_sum_grouped_by_name_year_month %}
+                <tr>
+                    <td>
+                        {{ wallet_credit.total_value }}
+                    </td>
+                    <td>
+                        {{ wallet_credit.currency }}
+                    </td>
+                    <td>
+                        {{ wallet_credit.month }}
+                    </td>
+                    <td>
+                        {{ wallet_credit.year }}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+            <h5>Incomes sum grouped by currency, month and year</h5>
+            <table class="highlight responsive-table">
+                <thead class="lime-text">
+                <tr>
+                    <th>Total value</th>
+                    <th>Currency</th>
+                    <th>Month</th>
+                    <th>Year</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for wallet_income in wallet_incomes_sum_grouped_by_name_year_month %}
+                <tr>
+                    <td>
+                        {{ wallet_income.total_value }}
+                    </td>
+                    <td>
+                        {{ wallet_income.currency }}
+                    </td>
+                    <td>
+                        {{ wallet_income.month }}
+                    </td>
+                    <td>
+                        {{ wallet_income.year }}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+            <h5>Expenses sum grouped by currency, month and year</h5>
+            <table class="highlight responsive-table">
+                <thead class="brown-text">
+                <tr>
+                    <th>Total value</th>
+                    <th>Currency</th>
+                    <th>Month</th>
+                    <th>Year</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for wallet_expense in wallet_expenses_sum_grouped_by_name_year_month %}
+                <tr>
+                    <td>
+                        {{ wallet_expense.total_value }}
+                    </td>
+                    <td>
+                        {{ wallet_expense.currency }}
+                    </td>
+                    <td>
+                        {{ wallet_expense.month }}
+                    </td>
+                    <td>
+                        {{ wallet_expense.year }}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+            <h5>Cars sum grouped by currency, month and year</h5>
+            <table class="highlight responsive-table">
+                <thead class="grey-text">
+                <tr>
+                    <th>Total value</th>
+                    <th>Currency</th>
+                    <th>Month</th>
+                    <th>Year</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for wallet_car in wallet_cars_sum_grouped_by_name_year_month %}
+                <tr>
+                    <td>
+                        {{ wallet_car.total_value }}
+                    </td>
+                    <td>
+                        {{ wallet_car.currency }}
+                    </td>
+                    <td>
+                        {{ wallet_car.month }}
+                    </td>
+                    <td>
+                        {{ wallet_car.year }}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

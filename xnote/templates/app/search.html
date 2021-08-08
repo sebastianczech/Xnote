@@ -1,0 +1,414 @@
+{% extends 'base_navbar.html' %}
+
+{% block title %}Search results{% endblock %}
+
+{% block content %}
+
+    {% load filter %}
+
+    <div class="row valign-wrapper">
+        <div class="col s12">
+            <h5>Search results for <em>"{{ search_value }}"</em></h5>
+        </div>
+    </div>
+
+{% if reminders.count > 0 %}
+    <div class="row">
+        <div class="col s12">
+            <h5>Reminders ({{ reminders.count }} elements)</h5>
+            <table class="highlight responsive-table">
+                <thead class="orange-text">
+                <tr>
+                    <th>Name</th>
+                    <th>Group</th>
+                    <th>Do until</th>
+                    <th>Repeat</th>
+                    <th>Priority</th>
+                    <th>Modified</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for reminder in reminders %}
+                <tr>
+                    <td>
+                        {{ reminder }}
+                    </td>
+                    <td>
+                        {{ reminder.group }}
+                    </td>
+                    <td>
+                        {% if reminder.when %}
+                            {{ reminder.when | date:"Y-m-d H:i" | calculate_date_for_reminder_with_repeat:reminder.repeat }}
+                        {% else %}
+                            - - -
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if reminder.repeat %}
+                            {{ reminder.get_repeat_display }}
+                        {% else %}
+                            - - -
+                        {% endif %}
+                    </td>
+                    <td>
+                        {{ reminder.get_priority_display }}
+                    </td>
+                    <td class="no-line-break">
+                        {{ reminder.modified | date:"Y-m-d H:i" }}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if wallet_accounts.count > 0 %}
+    <div class="row">
+        <div class="col s12">
+            <h5>Accounts ({{ wallet_accounts.count }} elements)</h5>
+            <table class="highlight responsive-table">
+                <thead class="blue-text">
+                <tr>
+                    <th>Name</th>
+                    <th>Value</th>
+                    <th>Currency</th>
+                    <th>Type</th>
+                    <th>Month</th>
+                    <th>Year</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for wallet_account in wallet_accounts %}
+                <tr>
+                    <td>
+                        {{ wallet_account }}
+                    </td>
+                    <td>
+                        {{ wallet_account.value }}
+                    </td>
+                     <td>
+                        {{ wallet_account.currency }}
+                    </td>
+                    <td>
+                        {{ wallet_account.type }}
+                    </td>
+                    <td>
+                        {{ wallet_account.month }}
+                    </td>
+                    <td>
+                        {{ wallet_account.year }}
+                    </td>
+                    <td class="no-line-break">
+                        {{ wallet_account.modified | date:"Y-m-d H:i" }}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if wallet_deposits.count > 0 %}
+    <div class="row">
+        <div class="col s12">
+            <h5>Deposits ({{ wallet_deposits.count }} elements)</h5>
+            <table class="highlight responsive-table">
+                <thead class="green-text">
+                <tr>
+                    <th>Name</th>
+                    <th>Value</th>
+                    <th>Currency</th>
+                    <th>Rate</th>
+                    <th>Month</th>
+                    <th>Year</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for wallet_deposit in wallet_deposits %}
+                <tr>
+                    <td>
+                        {{ wallet_deposit }}
+                    </td>
+                    <td>
+                        {{ wallet_deposit.value }}
+                    </td>
+                    <td>
+                        {{ wallet_deposit.currency }}
+                    </td>
+                    <td>
+                        {{ wallet_deposit.rate }} %
+                    </td>
+                    <td>
+                        {{ wallet_deposit.month }}
+                    </td>
+                    <td>
+                        {{ wallet_deposit.year }}
+                    </td>
+                    <td class="no-line-break">
+                        {{ wallet_deposit.modified | date:"Y-m-d H:i" }}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if wallet_credits.count > 0 %}
+    <div class="row">
+        <div class="col s12">
+            <h5>Credits ({{ wallet_credits.count }} elements)</h5>
+            <table class="highlight responsive-table">
+                <thead class="red-text">
+                <tr>
+                    <th>Name</th>
+                    <th>Value</th>
+                    <th>Currency</th>
+                    <th>Rate</th>
+                    <th>Balance</th>
+                    <th>Interest</th>
+                    <th>Insurance</th>
+                    <th>Capital</th>
+                    <th>Month</th>
+                    <th>Year</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for wallet_credit in wallet_credits %}
+                <tr>
+                    <td>
+                        {{ wallet_credit }}
+                    </td>
+                    <td>
+                        {{ wallet_credit.value }}
+                    </td>
+                    <td>
+                        {{ wallet_credit.currency }}
+                    </td>
+                    <td>
+                        {{ wallet_credit.rate }}&nbsp;%
+                    </td>
+                    <td>
+                        {{ wallet_credit.balance }}
+                    </td>
+                    <td>
+                        {{ wallet_credit.interest }}
+                    </td>
+                    <td>
+                        {{ wallet_credit.insurance }}
+                    </td>
+                    <td>
+                        {{ wallet_credit.capital }}
+                    </td>
+                    <td>
+                        {{ wallet_credit.month }}
+                    </td>
+                    <td>
+                        {{ wallet_credit.year }}
+                    </td>
+                    <td class="no-line-break">
+                        {{ wallet_credit.modified | date:"Y-m-d H:i" }}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if wallet_incomes.count > 0 %}
+    <div class="row">
+        <div class="col s12">
+            <h5>Incomes ({{ wallet_incomes.count }} elements)</h5>
+            <table class="highlight responsive-table">
+                <thead class="lime-text">
+                <tr>
+                    <th>Name</th>
+                    <th>Value</th>
+                    <th>Currency</th>
+                    <th>Type</th>
+                    <th>Month</th>
+                    <th>Year</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for wallet_income in wallet_incomes %}
+                <tr>
+                    <td>
+                        {{ wallet_income }}
+                    </td>
+                    <td>
+                        {{ wallet_income.value }}
+                    </td>
+                    <td>
+                        {{ wallet_income.currency }}
+                    </td>
+                    <td>
+                        {{ wallet_income.type }}
+                    </td>
+                    <td>
+                        {{ wallet_income.month }}
+                    </td>
+                    <td>
+                        {{ wallet_income.year }}
+                    </td>
+                    <td class="no-line-break">
+                        {{ wallet_income.modified | date:"Y-m-d H:i" }}
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if wallet_expenses.count > 0 %}
+    <div class="row">
+        <div class="col s12">
+            <h5>Expenses ({{ wallet_expenses.count }} elements)</h5>
+            <table class="highlight responsive-table">
+                <thead class="brown-text">
+                <tr>
+                    <th>Name</th>
+                    <th>Value</th>
+                    <th>Currency</th>
+                    <th>Type</th>
+                    <th>Month</th>
+                    <th>Year</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for wallet_expense in wallet_expenses %}
+                <tr>
+                    <td>
+                        {{ wallet_expense }}
+                    </td>
+                    <td>
+                        {{ wallet_expense.value }}
+                    </td>
+                    <td>
+                        {{ wallet_expense.currency }}
+                    </td>
+                    <td>
+                        {{ wallet_expense.type }}
+                    </td>
+                    <td>
+                        {{ wallet_expense.month }}
+                    </td>
+                    <td>
+                        {{ wallet_expense.year }}
+                    </td>
+                    <td class="no-line-break">
+                        {{ wallet_expense.modified | date:"Y-m-d H:i" }}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if wallet_houses.count > 0 %}
+    <div class="row">
+        <div class="col s12">
+            <h5>House counters ({{ wallet_houses.count }} elements)</h5>
+            <table class="highlight responsive-table">
+                <thead class="deep-purple-text">
+                <tr>
+                    <th>Name</th>
+                    <th>Value</th>
+                    <th>Month</th>
+                    <th>Year</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for wallet_house in wallet_houses %}
+                <tr>
+                    <td>
+                        {{ wallet_house }}
+                    </td>
+                    <td>
+                        {{ wallet_house.value }}
+                    </td>
+                    <td>
+                        {{ wallet_house.month }}
+                    </td>
+                    <td>
+                        {{ wallet_house.year }}
+                    </td>
+                    <td class="no-line-break">
+                        {{ wallet_house.modified | date:"Y-m-d H:i" }}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if wallet_cars.count > 0 %}
+    <div class="row">
+        <div class="col s12">
+            <h5>Cars / motors ({{ wallet_cars.count }} elements)</h5>
+            <table class="highlight responsive-table">
+                <thead class="grey-text">
+                <tr>
+                    <th>Name</th>
+                    <th>Exploitation</th>
+                    <th>Payment</th>
+                    <th>Currency</th>
+                    <th>Refuelling</th>
+                    <th>Month</th>
+                    <th>Year</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for wallet_car in wallet_cars %}
+                <tr>
+                    <td>
+                        {{ wallet_car }}
+                    </td>
+                    <td>
+                        {{ wallet_car.exploitation }} km
+                    </td>
+                    <td>
+                        {{ wallet_car.payment }}
+                    </td>
+                    <td>
+                        {{ wallet_car.currency }}
+                    </td>
+                    <td>
+                        {{ wallet_car.refuelling }} l
+                    </td>
+                    <td>
+                        {{ wallet_car.month }}
+                    </td>
+                    <td>
+                        {{ wallet_car.year }}
+                    </td>
+                    <td class="no-line-break">
+                        {{ wallet_car.modified | date:"Y-m-d H:i" }}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+
+{% endblock %}

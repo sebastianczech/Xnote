@@ -1,0 +1,45 @@
+{% extends 'base_navbar.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col s12">
+            <h5>Dashboard</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+            <h6>Wallet</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+            <a href="{% url 'wallet_wizard_shopping' %}" class="modal-trigger btn-floating waves-effect waves-light tooltipped pulse margin-left-right margin-top-bottom" data-position="bottom" data-delay="50" data-tooltip="New shopping"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+            <a href="{% url 'wallet_wizard_refuelling' %}" class="modal-trigger btn-floating waves-effect waves-light tooltipped pulse margin-left-right margin-top-bottom" data-position="bottom" data-delay="50" data-tooltip="New refuelling"><i class="fa fa-car" aria-hidden="true"></i></a>
+            <a href="{% url 'wallet_wizard_incoming' %}" class="modal-trigger btn-floating waves-effect waves-light tooltipped pulse margin-left-right margin-top-bottom" data-position="bottom" data-delay="50" data-tooltip="New incoming money"><i class="fa fa-usd" aria-hidden="true"></i></a>
+            <a href="{% url 'wallet_wizard_account_transferring' %}" class="modal-trigger btn-floating waves-effect waves-light tooltipped pulse margin-left-right margin-top-bottom" data-position="bottom" data-delay="50" data-tooltip="New transfer between accounts"><i class="fa fa-exchange" aria-hidden="true"></i></a>
+            <a href="{% url 'wallet_wizard_crediting' %}" class="modal-trigger btn-floating waves-effect waves-light tooltipped pulse margin-left-right margin-top-bottom" data-position="bottom" data-delay="50" data-tooltip="New crediting"><i class="fa fa-university" aria-hidden="true"></i></a>
+            <a href="{% url 'wallet_wizard_depositing' %}" class="modal-trigger btn-floating waves-effect waves-light tooltipped pulse margin-left-right margin-top-bottom" data-position="bottom" data-delay="50" data-tooltip="New money depositing"><i class="fa fa-credit-card" aria-hidden="true"></i></a>
+            <a href="{% url 'wallet_wizard_deposit_transferring' %}" class="modal-trigger btn-floating waves-effect waves-light tooltipped pulse margin-left-right margin-top-bottom" data-position="bottom" data-delay="50" data-tooltip="New transfer between account and deposit"><i class="fa fa-ban" aria-hidden="true"></i></a>
+            <a href="{% url 'wallet_wizard_currency_exchange' %}" class="modal-trigger btn-floating waves-effect waves-light tooltipped pulse margin-left-right margin-top-bottom" data-position="bottom" data-delay="50" data-tooltip="New currency exchange"><i class="fa fa-stack-exchange" aria-hidden="true"></i></a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+            <h6>Reminders</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+            <a href="{% url 'reminder_add' %}" class="modal-trigger btn-floating waves-effect waves-light tooltipped pulse margin-left-right margin-top-bottom" data-position="bottom" data-delay="50" data-tooltip="New reminder"><i class="fa fa-square-o" aria-hidden="true"></i></a>
+            <a href="{% url 'reminder_group_add' %}" class="modal-trigger btn-floating waves-effect waves-light tooltipped pulse margin-left-right margin-top-bottom" data-position="bottom" data-delay="50" data-tooltip="New group of reminders"><i class="fa fa-cube" aria-hidden="true"></i></a>
+        </div>
+    </div>
+
+{% endblock %}

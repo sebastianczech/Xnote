@@ -1,0 +1,71 @@
+{% extends 'base_navbar.html' %}
+
+{% block title %}Logs{% endblock %}
+
+{% block content %}
+
+     {% load filter %}
+
+     <div class="row">
+        <div class="col s12">
+            <h5>Logs</h5>
+            <table class="highlight responsive-table">
+                <thead class="grey-text">
+                    <tr>
+                        <th>Log <i>(click to edit)</i></th>
+                        <th>Type</th>
+                        <th>JSON</th>
+                        <th>Date</th>
+                        <th><i>Delete</i></th>
+                    </tr>
+                 </thead>
+                <tbody>
+                {% for log in logs %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'log_detail' id=log.id %}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Show log">
+                                {{ log }}
+                            </a><br>
+                        </td>
+                        <td>
+                            {{ log.type }}
+                        </td>
+                        <td>
+                            <pre>{{ log.json|linebreaks }}</pre>
+                        </td>
+                        <td class="no-line-break">
+                            {{ log.modified | date:"Y-m-d H:i" }}
+                        </td>
+                        <td>
+                            <a href="{% url 'log_remove' id=log.id %}" class="waves-effect waves-light tooltipped right" data-position="bottom" data-delay="50" data-tooltip="Remove log"><i class="fa fa-times" aria-hidden="true"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+     </div>
+     <div class="row">
+        <div class="col s6">
+            <div class="pagination">
+                <span class="step-links valign-wrapper">
+                    {% if logs.has_previous %}
+                        <a href="?page={{ logs.previous_page_number }}" class="tooltipped fa-2x" data-position="bottom" data-delay="50" data-tooltip="Previous page"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                    {% endif %}
+
+                    <span class="current-page">
+                        {{ logs.number }} / {{ logs.paginator.num_pages }}
+                    </span>
+
+                    {% if logs.has_next %}
+                        <a href="?page={{ logs.next_page_number }}" class="tooltipped fa-2x" data-position="bottom" data-delay="50" data-tooltip="Next page"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+        <div class="col s6">
+            <a href="{% url 'log_add' %}" class="btn-floating waves-effect waves-light tooltipped pulse right" data-position="bottom" data-delay="50" data-tooltip="Add log"><i class="material-icons">add</i></a>
+        </div>
+     </div>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock title %} | Notes</title>
+
+        {% load static %}
+
+        <!--Website optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!--Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+        <!--Google material icons-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <!-- Compiled and minified CSS -->
+        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">-->
+<!--        <link rel="stylesheet" href="{% static 'app/css/materialize.css' %}" />-->
+
+<!--        <link rel="stylesheet" href="{% static 'app/css/datatables.min.css' %}" />-->
+
+        <!-- Font awesome -->
+<!--        <link rel="stylesheet" href="{% static 'app/css/font-awesome.min.css' %}">-->
+
+        <!-- Chart.js -->
+<!--        <script type="text/javascript" src="{% static 'app/js/chart.bundle.min.js' %}"></script>-->
+
+        <!-- Favicon -->
+<!--        <link rel="shortcut icon" href="{%  static 'app/img/favicon.ico' %}">-->
+
+        <!--Static files-->
+<!--        <link rel="stylesheet" type="text/css" href="{% static 'app/css/style.css' %}" />-->
+    </head>
+
+    <body>
+        {% block menu %}{% endblock menu %}
+
+        <div class="container">
+            {% block content %}{% endblock content %}
+        </div>
+
+        <!--jQuery-->
+        <!--<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
+        <script type="text/javascript" src="{% static 'app/js/jquery-3.2.1.min.js' %}"></script>
+
+        <!--Compiled and minified JavaScript Materialize CSS-->
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>-->
+        <script type="text/javascript" src="{% static 'app/js/materialize.min.js' %}"></script>
+
+        <script type="text/javascript" src="{% static 'app/js/datatables.min.js' %}"></script>
+
+        <!--Static script-->
+        <script type="text/javascript" src="{% static 'app/js/init.js' %}"></script>
+
+        {% block scripts %}{% endblock scripts %}
+    </body>
+</html>

@@ -1,0 +1,62 @@
+{% extends 'base_navbar.html' %}
+
+{% block title %}Wallet{% endblock %}
+
+{% load mathfilters %}
+
+{% block content %}
+
+     <div class="row valign-wrapper">
+         <div class="col s6">
+            <h5>Wallet car</h5>
+         </div>
+         <div class="col s6">
+        </div>
+     </div>
+
+    <div class="row">
+        <div class="col s12">
+            <table class="highlight responsive-table">
+                <thead class="grey-text">
+                <tr>
+                    <th>Total value</th>
+                    <th>Total refuelling</th>
+                    <th>Total distance</th>
+                    <th>Average refuelling</th>
+                    <th>Average price</th>
+                    <th>Month</th>
+                    <th>Year</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for wallet_car in wallet_cars_sum_grouped_by_name_year_month %}
+                <tr>
+                    <td>
+                        {{ wallet_car.total_value }} {{ wallet_car.currency }}
+                    </td>
+                    <td>
+                        {{ wallet_car.total_refuelling }} l
+                    </td>
+                    <td>
+                        {{ wallet_car.total_distance }} km
+                    </td>
+                    <td>
+                        {{ wallet_car.avg_refuelling_100km }} l / 100 km
+                    </td>
+                    <td>
+                        {{ wallet_car.avg_price }} {{ wallet_car.currency }} / l
+                    </td>
+                    <td>
+                        {{ wallet_car.month }}
+                    </td>
+                    <td>
+                        {{ wallet_car.year }}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

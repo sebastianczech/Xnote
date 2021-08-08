@@ -1,0 +1,62 @@
+{% extends 'base_navbar.html' %}
+
+{% block title %}Log's details{% endblock %}
+
+{% block content %}
+
+    {% load filter %}
+
+     <div class="row">
+        <div class="col s12">
+            <h5>
+                Log's details
+            </h5>
+            <table class="highlight responsive-table">
+                <tr>
+                    <td>
+                        Type:
+                    </td>
+                    <td>
+                        {{ log.type }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Info:
+                    </td>
+                    <td>
+                        {{ log.info }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        JSON:
+                    </td>
+                    <td>
+                        <pre>{{ log.json|linebreaks }}</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Created&nbsp;by:
+                    </td>
+                    <td>
+                        {{ log.user }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Created&nbsp;on:
+                    </td>
+                    <td>
+                        {{ log.modified | date:"Y-m-d H:i" }}
+                    </td>
+                </tr>
+            </table>
+
+            <a href="{% url 'log' %}" class="tooltipped fa-2x" data-position="bottom" data-delay="50" data-tooltip="Go back"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+            <a href="{% url 'log_edit' id=log.id %}" class="btn-floating waves-effect waves-light tooltipped pulse right" data-position="bottom" data-delay="50" data-tooltip="Edit log"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+        </div>
+     </div>
+
+{% endblock %}
