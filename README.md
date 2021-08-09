@@ -114,6 +114,14 @@ Start all tests with coverage:
 pytest --cov=patterns tests
 ```
 
+## Static content
+
+Copy files from static folders into `STATIC_ROOT` directory:
+```bash
+python manage.py collectstatic
+python manage.py collectstatic --no-input
+```
+
 ## Working with databases
 
 ### Models and migrations
