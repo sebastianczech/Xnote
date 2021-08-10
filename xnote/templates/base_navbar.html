@@ -3,36 +3,34 @@
 {% load static %}
 
 {% block menu %}
-    <div class="navbar-fixed">
-      <nav>
-        <div class="nav-wrapper">
-          <a href="/" class="brand-logo"><img src="{% static 'xnote/img/logo.png' %}"></a>
-          <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-              <li><a class="modal-trigger tooltipped" href="#search_box" data-position="bottom" data-delay="50" data-tooltip="Search"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-              <li><a class="tooltipped" href="/wallet" data-position="bottom" data-delay="50" data-tooltip="Wallet"><i class="fa fa-credit-card" aria-hidden="true"></i></a></li>
-              <li><a class="tooltipped" href="/calendar" data-position="bottom" data-delay="50" data-tooltip="Calendar"><i class="fa fa-calendar" aria-hidden="true"></i></a></li>
-              <li><a class="tooltipped" href="/reminder" data-position="bottom" data-delay="50" data-tooltip="Reminders"><i class="fa fa-clock-o" aria-hidden="true"></i></a></li>
-              <li><a class="tooltipped" href="/note" data-position="bottom" data-delay="50" data-tooltip="Notes"><i class="fa fa-sticky-note-o" aria-hidden="true"></i></a></li>
-              <li><a class="tooltipped" href="/log" data-position="bottom" data-delay="50" data-tooltip="Logs"><i class="fa fa-trash" aria-hidden="true"></i></a></li>
-              <li><a class="tooltipped" href="/admin" data-position="bottom" data-delay="50" data-tooltip="Admin"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
-              <li><a class="tooltipped" href="/oauth2revoke" data-position="bottom" data-delay="50" data-tooltip="Revoke"><i class="fa fa-lock" aria-hidden="true"></i></a></li>
-              <li><a class="tooltipped" href="/logout" data-position="bottom" data-delay="50" data-tooltip="Logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
-          </ul>
-        </div>
-      </nav>
+    <div class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav>
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="{% static 'xnote/img/logo.png' %}"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="/wallet"><i class="fa fa-credit-card" aria-hidden="true"></i></a></li>
+                        <li class="nav-item"><a class="nav-link" href="/calendar"><i class="fa fa-calendar" aria-hidden="true"></i></a></li>
+                        <li class="nav-item"><a class="nav-link" href="/reminder"><i class="fa fa-clock" aria-hidden="true"></i></a></li>
+                        <li class="nav-item"><a class="nav-link" href="/note"><i class="fa fa-sticky-note" aria-hidden="true"></i></a></li>
+                        <li class="nav-item"><a class="nav-link" href="/log"><i class="fa fa-trash" aria-hidden="true"></i></a></li>
+                        <li class="nav-item"><a class="nav-link" href="/admin"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
+                        <li class="nav-item"><a class="nav-link" href="/oauth2revoke"><i class="fa fa-lock" aria-hidden="true"></i></a></li>
+                        <li class="nav-item"><a class="nav-link" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                    </ul>
+
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </form>
+                </div>
+            </div>
+        </nav>
     </div>
-    <ul class="side-nav" id="mobile-menu">
-      <li><a class="modal-trigger" href="#search_box"><i class="fa fa-search" aria-hidden="true"></i>Search</a></li>
-      <li><a href="/wallet"><i class="fa fa-credit-card" aria-hidden="true"></i>Wallet</a></li>
-      <li><a href="/calendar"><i class="fa fa-calendar" aria-hidden="true"></i>Calendar</a></li>
-      <li><a href="/reminder"><i class="fa fa-clock-o" aria-hidden="true"></i>Reminders</a></li>
-      <li><a href="/note"><i class="fa fa-sticky-note-o" aria-hidden="true"></i>Notes</a></li>
-      <li><a href="/log"><i class="fa fa-trash" aria-hidden="true"></i>Logs</a></li>
-      <li><a href="/admin"><i class="fa fa-cog" aria-hidden="true"></i>Admin</a></li>
-      <li><a href="/oauth2revoke"><i class="fa fa-lock" aria-hidden="true"></i>Revoke</a></li>
-      <li><a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
-    </ul>
+
     <div id="search_box" class="modal">
         <form method="post" action="/search/">
           {% csrf_token %}
