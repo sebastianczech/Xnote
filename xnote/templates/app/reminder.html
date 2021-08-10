@@ -33,7 +33,7 @@
 
     <div class="row">
         <div class="col s12">
-            <table id="table-as-dynamic-datatable" class="highlight responsive-table">
+            <table class="highlight responsive-table">
                 <thead class="grey-text">
                     <tr>
                         <th>Name <i>(click to edit)</i></th>
@@ -86,34 +86,6 @@
             </table>
         </div>
      </div>
-     <!--<div class="row">-->
-        <!--<div class="col s12">-->
-            <!--<a href="{% url 'reminder_in_time' time='week' %}" class="modal-trigger btn-flat waves-effect waves-light tooltipped margin-left-right margin-top-bottom" data-position="bottom" data-delay="50" data-tooltip="In this week"><i class="fa fa-clock-o" aria-hidden="true"></i> This week</a>-->
-            <!--<a href="{% url 'reminder_in_time' time='month' %}" class="modal-trigger btn-flat waves-effect waves-light tooltipped margin-left-right margin-top-bottom" data-position="bottom" data-delay="50" data-tooltip="In this month"><i class="fa fa-clock-o" aria-hidden="true"></i> This month</a>-->
-            <!--<a href="{% url 'reminder_in_time' time='year' %}" class="modal-trigger btn-flat waves-effect waves-light tooltipped margin-left-right margin-top-bottom" data-position="bottom" data-delay="50" data-tooltip="In this year"><i class="fa fa-clock-o" aria-hidden="true"></i> This year</a>-->
-        <!--</div>-->
-     <!--</div>-->
-     <!--<div class="row">-->
-        <!--<div class="col s6">-->
-            <!--<div class="pagination">-->
-                <!--<span class="step-links valign-wrapper">-->
-                    <!--{% if reminders.has_previous %}-->
-                        <!--<a href="?page={{ reminders.previous_page_number }}" class="tooltipped fa-2x" data-position="bottom" data-delay="50" data-tooltip="Previous page"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>-->
-                    <!--{% endif %}-->
-
-                    <!--<span class="current-page">-->
-                        <!--{{ reminders.number }} / {{ reminders.paginator.num_pages }}-->
-                    <!--</span>-->
-
-                    <!--{% if reminders.has_next %}-->
-                        <!--<a href="?page={{ reminders.next_page_number }}" class="tooltipped fa-2x" data-position="bottom" data-delay="50" data-tooltip="Next page"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>-->
-                    <!--{% endif %}-->
-                <!--</span>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="col s6">-->
-        <!--</div>-->
-     <!--</div>-->
 
 {% endblock %}
 
@@ -122,6 +94,5 @@
 {% load static %}
 
 <script type="text/javascript" src="{% static 'xnote/js/reminder.js' %}"></script>
-<!--<script type="text/javascript" src="{% static 'xnote/js/datatable.js' %}"></script>-->
 
 {% endblock %}
