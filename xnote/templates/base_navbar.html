@@ -3,22 +3,23 @@
 {% load static %}
 
 {% block menu %}
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-light bg-primary">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="/"><img src="{% static 'xnote/img/logo.png' %}"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="/wallet"><i class="fa fa-credit-card" aria-hidden="true"></i></a></li>
-                    <li class="nav-item"><a class="nav-link" href="/calendar"><i class="fa fa-calendar" aria-hidden="true"></i></a></li>
-                    <li class="nav-item"><a class="nav-link" href="/reminder"><i class="fa fa-clock" aria-hidden="true"></i></a></li>
-                    <li class="nav-item"><a class="nav-link" href="/note"><i class="fa fa-sticky-note" aria-hidden="true"></i></a></li>
-                    <li class="nav-item"><a class="nav-link" href="/log"><i class="fa fa-trash" aria-hidden="true"></i></a></li>
-                    <li class="nav-item"><a class="nav-link" href="/admin"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
-                    <li class="nav-item"><a class="nav-link" href="/oauth2revoke"><i class="fa fa-lock" aria-hidden="true"></i></a></li>
-                    <li class="nav-item"><a class="nav-link" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 px-4">
+                    <li class="nav-item"><a class="nav-link" href="/wallet" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Wallet"><i class="fa fa-credit-card" aria-hidden="true"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/calendar" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Calendar"><i class="fa fa-calendar" aria-hidden="true"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/reminder" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Reminders"><i class="fa fa-clock" aria-hidden="true"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/note" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Notes"><i class="fa fa-sticky-note" aria-hidden="true"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/log" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logs"><i class="fa fa-trash" aria-hidden="true"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/admin" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Administration"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/oauth2revoke" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Revoke"><i class="fa fa-lock" aria-hidden="true"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/logout" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
                 </ul>
 
                 <form class="d-flex">
@@ -27,35 +28,7 @@
                 </form>
             </div>
         </div>
-=    </nav>
+    </nav>
 
-    <div id="search_box" class="modal">
-        <form method="post" action="/search/">
-          {% csrf_token %}
-          <div class="modal-content">
-              <div class="row">
-                    <div class="col s8">
-                        <h4>Search element</h4>
-                    </div>
-                    <div class="col s4">
-                        <a href="#!" class="modal-action modal-close waves-effect waves-light right"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
-                    </div>
-              </div>
-              <div class="row">
-                    <div class="input-field col s12">
-                        <input type="text" id="search_value" name="search_value">
-                        <label for="search_value">Search</label>
-                    </div>
-              </div>
-          </div>
-          <div class="modal-footer">
-              <div class="row">
-                    <div class="col s12">
-                        <button class="modal-action modal-close waves-effect waves-light btn" type="submit">Search</button>
-                    </div>
-              </div>
-          </div>
-        </form>
-    </div>
 
 {% endblock %}
