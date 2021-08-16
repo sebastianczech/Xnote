@@ -5,19 +5,19 @@
 {% block content %}
 
     <div class="row">
-        <div class="col s12">
+        <div class="col-12">
             <h3>Dashboard</h3>
         </div>
     </div>
 
     <div class="row">
-        <div class="col s12">
+        <div class="col-12">
             <h5>Wallet</h5>
         </div>
     </div>
 
     <div class="row">
-        <div class="col s12">
+        <div class="col-12">
             <a href="{% url 'wallet_wizard_shopping' %}" class="btn btn-secondary btn-lg" data-position="bottom" data-delay="50" data-tooltip="New shopping"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
             <a href="{% url 'wallet_wizard_refuelling' %}" class="btn btn-secondary btn-lg" data-position="bottom" data-delay="50" data-tooltip="New refuelling"><i class="fa fa-car" aria-hidden="true"></i></a>
             <a href="{% url 'wallet_wizard_incoming' %}" class="btn btn-secondary btn-lg" data-position="bottom" data-delay="50" data-tooltip="New incoming money"><i class="fas fa-dollar-sign" aria-hidden="true"></i></a>
@@ -30,13 +30,13 @@
     </div>
 
     <div class="row">
-        <div class="col s12">
+        <div class="col-12">
             <h5>Reminders</h5>
         </div>
     </div>
 
     <div class="row">
-        <div class="col s12">
+        <div class="col-12">
             <a href="{% url 'reminder_add' %}" class="btn btn-secondary btn-lg" data-position="bottom" data-delay="50" data-tooltip="New reminder"><i class="fa fa-square" aria-hidden="true"></i></a>
             <a href="{% url 'reminder_group_add' %}" class="btn btn-secondary btn-lg" data-position="bottom" data-delay="50" data-tooltip="New group of reminders"><i class="fa fa-cube" aria-hidden="true"></i></a>
         </div>

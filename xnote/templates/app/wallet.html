@@ -7,17 +7,17 @@
 {% block content %}
 
 <div class="row valign-wrapper">
-    <div class="col s6">
+    <div class="col-6">
         <h5>Wallet - {{ year }}/{{ month }} ({{ wallet_count_elements }} elements)</h5>
     </div>
-    <div class="col s6">
+    <div class="col-6">
         <a href="{% url 'wallet_year_month' year=year_next month=month_next %}" class="tooltipped margin-left-right right" data-position="bottom" data-delay="50" data-tooltip="Next month">{{ year_next }}/{{ month_next }} <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
         <a href="{% url 'wallet_year_month' year=year_prev month=month_prev %}" class="tooltipped margin-left-right right" data-position="bottom" data-delay="50" data-tooltip="Previous month"><i class="fa fa-chevron-left" aria-hidden="true"></i> {{ year_prev }}/{{ month_prev }}</a>
     </div>
 </div>
 
 <div class="row">
-    <div class="col s12">
+    <div class="col-12">
         <a href="#detailed_analysis_box" class="modal-trigger btn-floating waves-effect waves-light tooltipped grey margin-left-right margin-top-bottom" data-position="bottom" data-delay="50" data-tooltip="Detailed analysis"><i class="material-icons">list</i></a>
         <a href="#wallet_generator_box" class="modal-trigger btn-floating waves-effect waves-light tooltipped grey margin-left-right margin-top-bottom" data-position="bottom" data-delay="50" data-tooltip="Wallet generators"><i class="material-icons">create</i></a>
 
@@ -33,7 +33,7 @@
 </div>
 
 <div class="row">
-    <div class="col s12">
+    <div class="col-12">
         <div class="card">
             <div class="card-content">
                 <canvas id="chart_summary_bar_log"></canvas>
@@ -43,7 +43,7 @@
 </div>
 
 <div class="row">
-    <div class="col s12">
+    <div class="col-12">
         <div class="card">
             <div class="card-content">
                 <canvas id="chart_summary_doughnut_linear"></canvas>
@@ -53,7 +53,7 @@
 </div>
 
 <div class="row">
-    <div class="col s12">
+    <div class="col-12">
         <div class="card">
             <div class="card-content">
                 <canvas id="chart_expenses_doughnut_linear"></canvas>
@@ -65,15 +65,15 @@
 <div id="detailed_analysis_box" class="modal">
     <div class="modal-content">
         <div class="row">
-            <div class="col s8">
+            <div class="col-8">
                 <h4>Detailed analysis</h4>
             </div>
-            <div class="col s4">
+            <div class="col-4">
                 <a href="#!" class="modal-action modal-close waves-effect waves-light right"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="row">
-            <div class="col s12">
+            <div class="col-12">
                 <table>
                     <tr>
                         <td>
@@ -99,15 +99,15 @@
 <div id="wallet_generator_box" class="modal">
     <div class="modal-content">
         <div class="row">
-            <div class="col s8">
+            <div class="col-8">
                 <h4>Wallet generators</h4>
             </div>
-            <div class="col s4">
+            <div class="col-4">
                 <a href="#!" class="modal-action modal-close waves-effect waves-light right"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="row">
-            <div class="col s12">
+            <div class="col-12">
                 <table>
                     <tr>
                         <td>
@@ -126,7 +126,7 @@
 </div>
 
 <div class="row">
-    <div class="col s12">
+    <div class="col-12">
         <h5>Accounts ({{ wallet_accounts.count }} elements)</h5>
         <table class="highlight responsive-table">
             <thead class="blue-text">
@@ -179,7 +179,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col s12">
+    <div class="col-12">
         <span class="margin-left-right">
             <i class="fa fa-credit-card" aria-hidden="true"></i> {{ wallet_accounts_sum }} zł
         </span>
@@ -188,7 +188,7 @@
 </div>
 
 <div class="row">
-    <div class="col s12">
+    <div class="col-12">
         <h5>Deposits ({{ wallet_deposits.count }} elements)</h5>
         <table class="highlight responsive-table">
             <thead class="green-text">
@@ -245,7 +245,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col s12">
+    <div class="col-12">
         <span class="margin-left-right">
             <i class="fa fa-credit-card" aria-hidden="true"></i> {{ wallet_deposits_sum }} zł
         </span>
@@ -254,7 +254,7 @@
 </div>
 
 <div class="row">
-    <div class="col s12">
+    <div class="col-12">
         <h5>Credits ({{ wallet_credits.count }} elements)</h5>
         <table class="highlight responsive-table">
             <thead class="red-text">
@@ -330,7 +330,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col s12">
+    <div class="col-12">
         <span class="margin-left-right">
             <i class="fa fa-credit-card" aria-hidden="true"></i> {{ wallet_credits_sum }} zł
         </span>
@@ -339,7 +339,7 @@
 </div>
 
 <div class="row">
-    <div class="col s12">
+    <div class="col-12">
         <h5>Incomes ({{ wallet_incomes.count }} elements)</h5>
         <table class="highlight responsive-table">
             <thead class="lime-text">
@@ -397,7 +397,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col s12">
+    <div class="col-12">
         <span class="margin-left-right">
             <i class="fa fa-credit-card" aria-hidden="true"></i> {{ wallet_incomes_sum }} zł
         </span>
@@ -406,7 +406,7 @@
 </div>
 
 <div class="row">
-    <div class="col s12">
+    <div class="col-12">
         <h5>Expenses ({{ wallet_expenses.count }} elements)</h5>
         <table class="highlight responsive-table">
             <thead class="brown-text">
@@ -461,7 +461,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col s12">
+    <div class="col-12">
         <span class="margin-left-right">
             <i class="fa fa-credit-card" aria-hidden="true"></i> {{ wallet_expenses_sum }} zł
         </span>
@@ -470,7 +470,7 @@
 </div>
 
 <div class="row">
-    <div class="col s12">
+    <div class="col-12">
         <h5>House counters ({{ wallet_houses.count }} elements)</h5>
         <table class="highlight responsive-table">
             <thead class="deep-purple-text">
@@ -515,13 +515,13 @@
     </div>
 </div>
 <div class="row">
-    <div class="col s12">
+    <div class="col-12">
         <a href="{% url 'wallet_house_add' %}" class="btn-floating waves-effect waves-light tooltipped right" data-position="bottom" data-delay="50" data-tooltip="Add wallet house"><i class="material-icons">add</i></a>
     </div>
 </div>
 
 <div class="row">
-    <div class="col s12">
+    <div class="col-12">
         <h5>Cars / motors ({{ wallet_cars.count }} elements)</h5>
         <table class="highlight responsive-table">
             <thead class="grey-text">
@@ -578,7 +578,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col s12">
+    <div class="col-12">
         <span class="margin-left-right">
             <i class="fa fa-credit-card" aria-hidden="true"></i> {{ wallet_cars_sum }} zł
         </span>

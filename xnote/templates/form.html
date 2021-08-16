@@ -1,7 +1,7 @@
 {% load filter %}
 
 {% for field in form %}
-    <div class="input-field col s12">
+    <div class="input-field col-12">
         {{ field.errors }}
         {% if field|input_type == 'Textarea' %}
             {{ field|add_class:'materialize-textarea' }}
