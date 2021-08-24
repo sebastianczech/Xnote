@@ -10,18 +10,18 @@
             <form method="POST">
                 {% csrf_token %}
 
-                <div class="row">
+                <div class="form-row">
                     <div class="col-6">
                         {% include 'form.html' %}
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="form-row mt-4">
                     <div class="col-6">
-                        <button class="btn waves-effect waves-light" type="submit">
+                        <button class="btn btn-warning" type="submit">
                             {{ button }}
                         </button>
-                            <a class="btn waves-effect waves-light grey" href="{% url 'wallet' %}">
+                            <a class="btn btn-secondary" href="{% url 'wallet' %}">
                                 Cancel
                             </a>
                     </div>

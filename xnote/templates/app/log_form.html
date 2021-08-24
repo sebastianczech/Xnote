@@ -10,23 +10,23 @@
             <form method="POST">
                 {% csrf_token %}
 
-                <div class="row">
+                <div class="form-row">
                     <div class="col-6">
                         {% include 'form.html' %}
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="form-row mt-4">
                     <div class="col-6">
-                        <button class="btn waves-effect waves-light" type="submit">
+                        <button class="btn btn-warning" type="submit">
                             {{ button }}
                         </button>
                         {% if id is not None %}
-                            <a class="btn waves-effect waves-light grey" href="{% url 'log_detail' id=id %}">
+                            <a class="btn btn-secondary" href="{% url 'log_detail' id=id %}">
                                 Cancel
                             </a>
                         {% else %}
-                            <a class="btn waves-effect waves-light grey" href="{% url 'log' %}">
+                            <a class="btn btn-secondary" href="{% url 'log' %}">
                                 Cancel
                             </a>
                         {% endif %}

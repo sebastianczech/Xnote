@@ -1,16 +1,16 @@
 {% load filter %}
 
 {% for field in form %}
-    <div class="input-field col-12">
+    <div class="form-group mb-2">
         {{ field.errors }}
-        {% if field|input_type == 'Textarea' %}
-            {{ field|add_class:'materialize-textarea' }}
-        {% elif field|input_type == 'Select' %}
-            {{ field }}
-        {% else %}
-            {{ field }}
-        {% endif %}
         {{ field.label_tag }}
+        {% if field|input_type == 'Textarea' %}
+            {{ field|add_class:'form-control' }}
+        {% elif field|input_type == 'Select' %}
+            {{ field|add_class:'form-control' }}
+        {% else %}
+            {{ field|add_class:'form-control' }}
+        {% endif %}
     </div>
 {% endfor %}
 
