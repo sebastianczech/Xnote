@@ -23,7 +23,7 @@
                 {% for log in logs %}
                     <tr>
                         <td>
-                            <a href="{% url 'log_detail' id=log.id %}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Show log">
+                            <a href="{% url 'log_detail' id=log.id %}" class="tooltipped" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show log">
                                 {{ log }}
                             </a><br>
                         </td>
@@ -37,7 +37,7 @@
                             {{ log.modified | date:"Y-m-d H:i" }}
                         </td>
                         <td>
-                            <a href="{% url 'log_remove' id=log.id %}" class="waves-effect waves-light tooltipped right" data-position="bottom" data-delay="50" data-tooltip="Remove log"><i class="fa fa-times" aria-hidden="true"></i></a>
+                            <a href="{% url 'log_remove' id=log.id %}" class="waves-effect waves-light tooltipped right" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Remove log"><i class="fa fa-times" aria-hidden="true"></i></a>
                         </td>
                     </tr>
                 {% endfor %}
@@ -50,7 +50,7 @@
             <div class="pagination">
                 <span class="step-links valign-wrapper">
                     {% if logs.has_previous %}
-                        <a href="?page={{ logs.previous_page_number }}" class="tooltipped fa-2x" data-position="bottom" data-delay="50" data-tooltip="Previous page"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                        <a href="?page={{ logs.previous_page_number }}" class="tooltipped fa-2x" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Previous page"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
                     {% endif %}
 
                     <span class="current-page">
@@ -58,13 +58,13 @@
                     </span>
 
                     {% if logs.has_next %}
-                        <a href="?page={{ logs.next_page_number }}" class="tooltipped fa-2x" data-position="bottom" data-delay="50" data-tooltip="Next page"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                        <a href="?page={{ logs.next_page_number }}" class="tooltipped fa-2x" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Next page"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                     {% endif %}
                 </span>
             </div>
         </div>
         <div class="col-6">
-            <a href="{% url 'log_add' %}" class="btn-floating waves-effect waves-light tooltipped pulse right" data-position="bottom" data-delay="50" data-tooltip="Add log"><i class="material-icons">add</i></a>
+            <a href="{% url 'log_add' %}" class="btn-floating waves-effect waves-light tooltipped pulse right" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Add log"><i class="material-icons">add</i></a>
         </div>
      </div>
 

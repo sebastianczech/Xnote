@@ -54,8 +54,8 @@
                 </tr>
             </table>
 
-            <a href="{% url 'log' %}" class="tooltipped fa-2x" data-position="bottom" data-delay="50" data-tooltip="Go back"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
-            <a href="{% url 'log_edit' id=log.id %}" class="btn-floating waves-effect waves-light tooltipped pulse right" data-position="bottom" data-delay="50" data-tooltip="Edit log"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+            <a href="{% url 'log' %}" class="tooltipped fa-2x" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Go back"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+            <a href="{% url 'log_edit' id=log.id %}" class="btn-floating waves-effect waves-light tooltipped pulse right" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit log"><i class="fas fa-pencil-alt"></i></a>
         </div>
      </div>
 

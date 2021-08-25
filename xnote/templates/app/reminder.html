@@ -20,14 +20,14 @@
             {% for reminders_group in reminders_groups %}
             <div class="chip" id="reminders_group_{{ reminders_group.id }}" style="background-color: {{ reminders_group.color }}; color: #ffffff">
                 {{ reminders_group.name }}
-                <a href="{% url 'reminder_group_edit' id=reminders_group.id %}" class="waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Edit reminder group"><i class="fa fa-pencil-square-o white-text" aria-hidden="true"></i></a>
-                <a href="{% url 'reminder_group_remove' id=reminders_group.id %}" class="waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Remove reminder group"><i class="fa fa-times white-text" aria-hidden="true"></i></a>
+                <a href="{% url 'reminder_group_edit' id=reminders_group.id %}" class="waves-effect waves-light tooltipped" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit reminder group"><i class="fa fa-pencil-square-o white-text" aria-hidden="true"></i></a>
+                <a href="{% url 'reminder_group_remove' id=reminders_group.id %}" class="waves-effect waves-light tooltipped" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Remove reminder group"><i class="fa fa-times white-text" aria-hidden="true"></i></a>
             </div>
             {% endfor %}
         </div>
         <div class="col-2">
-            <a href="{% url 'reminder_group_add' %}" class="modal-trigger btn-floating waves-effect waves-light tooltipped pulse right margin-left-right margin-top-bottom" data-position="bottom" data-delay="50" data-tooltip="New group of reminders"><i class="fa fa-cube" aria-hidden="true"></i></a>
-            <a href="{% url 'reminder_add' %}" class="modal-trigger btn-floating waves-effect waves-light tooltipped pulse right margin-left-right margin-top-bottom" data-position="bottom" data-delay="50" data-tooltip="New reminder"><i class="fa fa-square-o" aria-hidden="true"></i></a>
+            <a href="{% url 'reminder_group_add' %}" class="modal-trigger btn-floating waves-effect waves-light tooltipped pulse right margin-left-right margin-top-bottom" data-bs-toggle="tooltip" data-bs-placement="bottom" title="New group of reminders"><i class="fa fa-cube" aria-hidden="true"></i></a>
+            <a href="{% url 'reminder_add' %}" class="modal-trigger btn-floating waves-effect waves-light tooltipped pulse right margin-left-right margin-top-bottom" data-bs-toggle="tooltip" data-bs-placement="bottom" title="New reminder"><i class="fa fa-square" aria-hidden="true"></i></a>
         </div>
     </div>
 
@@ -49,7 +49,7 @@
                 {% for reminder in reminders %}
                     <tr class="{% if reminder.priority == 'high' %} red-text {% endif %} {% if reminder.priority == 'low' %} grey-text {% endif %}">
                         <td>
-                            <a href="{% url 'reminder_edit' id=reminder.id %}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Show reminder">
+                            <a href="{% url 'reminder_edit' id=reminder.id %}" class="tooltipped" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show reminder">
                                 {{ reminder }}
                             </a><br>
                         </td>
@@ -77,8 +77,8 @@
                             {{ reminder.modified | date:"Y-m-d H:i" }}
                         </td>
                         <td>
-                            <a href="{% url 'reminder_add_to_calendar' id=reminder.id %}" class="waves-effect waves-light tooltipped margin-left-right" data-position="bottom" data-delay="50" data-tooltip="Add reminder to calendar"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i></a>
-                            <a href="{% url 'reminder_remove' id=reminder.id %}" class="waves-effect waves-light tooltipped " data-position="bottom" data-delay="50" data-tooltip="Remove reminder"><i class="fa fa-times" aria-hidden="true"></i></a>
+                            <a href="{% url 'reminder_add_to_calendar' id=reminder.id %}" class="waves-effect waves-light tooltipped margin-left-right" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Add reminder to calendar"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i></a>
+                            <a href="{% url 'reminder_remove' id=reminder.id %}" class="waves-effect waves-light tooltipped " data-bs-toggle="tooltip" data-bs-placement="bottom" title="Remove reminder"><i class="fa fa-times" aria-hidden="true"></i></a>
                         </td>
                     </tr>
                 {% endfor %}
