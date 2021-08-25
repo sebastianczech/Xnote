@@ -11,7 +11,7 @@
             <h5>
                 Log's details
             </h5>
-            <table class="highlight responsive-table">
+            <table class="highlight table table-striped table-hover">
                 <tr>
                     <td>
                         Type:
@@ -54,8 +54,8 @@
                 </tr>
             </table>
 
-            <a href="{% url 'log' %}" class="tooltipped fa-2x" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Go back"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
-            <a href="{% url 'log_edit' id=log.id %}" class="btn-floating waves-effect waves-light tooltipped pulse right" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit log"><i class="fas fa-pencil-alt"></i></a>
+            <a href="{% url 'log' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Go back"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+            <a href="{% url 'log_edit' id=log.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit log"><i class="fas fa-pencil-alt"></i></a>
         </div>
      </div>
 
