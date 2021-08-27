@@ -7,3 +7,7 @@ a:link {
 a:hover {
   color: #2a52be;
 }
+
+a {
+  text-decoration: none;
+}
