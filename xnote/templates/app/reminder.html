@@ -20,7 +20,7 @@
             {% for reminders_group in reminders_groups %}
             <div id="reminders_group_{{ reminders_group.id }}" style="background-color: {{ reminders_group.color }}; color: #ffffff">
                 {{ reminders_group.name }}
-                <a href="{% url 'reminder_group_edit' id=reminders_group.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit reminder group"><i class="fa fa-pencil-square-o text-info" aria-hidden="true"></i></a>
+                <a href="{% url 'reminder_group_edit' id=reminders_group.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit reminder group"><i class="fa fas fa-pencil-alt text-info" aria-hidden="true"></i></a>
                 <a href="{% url 'reminder_group_remove' id=reminders_group.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Remove reminder group"><i class="fa fa-times text-info" aria-hidden="true"></i></a>
             </div>
             {% endfor %}

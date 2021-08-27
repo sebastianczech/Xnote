@@ -6,7 +6,7 @@
 
 {% block content %}
 
-<div class="row valign-wrapper">
+<div class="row">
     <div class="col-6">
         <h5>Wallet - {{ year }}/{{ month }} ({{ wallet_count_elements }} elements)</h5>
     </div>
@@ -16,7 +16,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row mt-4">
     <div class="col-12">
         <a href="#detailed_analysis_box" class="modal-trigger btn-floating waves-effect waves-light tooltipped grey margin-left-right margin-top-bottom" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Detailed analysis"><i class="material-icons">list</i></a>
         <a href="#wallet_generator_box" class="modal-trigger btn-floating waves-effect waves-light tooltipped grey margin-left-right margin-top-bottom" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Wallet generators"><i class="material-icons">create</i></a>
@@ -32,7 +32,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row mt-4">
     <div class="col-12">
         <div class="card">
             <div class="card-content">
@@ -42,7 +42,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row mt-4">
     <div class="col-12">
         <div class="card">
             <div class="card-content">
@@ -52,7 +52,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row mt-4">
     <div class="col-12">
         <div class="card">
             <div class="card-content">
@@ -125,7 +125,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row mt-4">
     <div class="col-12">
         <h5>Accounts ({{ wallet_accounts.count }} elements)</h5>
         <table class="highlight table table-striped table-hover">
@@ -167,7 +167,7 @@
                     {{ wallet_account.modified | date:"Y-m-d H:i" }}
                 </td>
                 <td>
-                    <a href="{% url 'wallet_account_edit' id=wallet_account.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit wallet account"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <a href="{% url 'wallet_account_edit' id=wallet_account.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit wallet account"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
                 </td>
                 <td>
                     <a href="{% url 'wallet_account_remove' id=wallet_account.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Remove wallet account"><i class="fa fa-times" aria-hidden="true"></i></a>
@@ -187,7 +187,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row mt-4">
     <div class="col-12">
         <h5>Deposits ({{ wallet_deposits.count }} elements)</h5>
         <table class="highlight table table-striped table-hover">
@@ -233,7 +233,7 @@
                     {{ wallet_deposit.modified | date:"Y-m-d H:i" }}
                 </td>
                 <td>
-                    <a href="{% url 'wallet_deposit_edit' id=wallet_deposit.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit wallet deposit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <a href="{% url 'wallet_deposit_edit' id=wallet_deposit.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit wallet deposit"><i class="fa fas fa-pencil-alt" aria-hidden="true"></i></a>
                 </td>
                 <td>
                     <a href="{% url 'wallet_deposit_remove' id=wallet_deposit.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Remove wallet deposit"><i class="fa fa-times" aria-hidden="true"></i></a>
@@ -253,7 +253,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row mt-4">
     <div class="col-12">
         <h5>Credits ({{ wallet_credits.count }} elements)</h5>
         <table class="highlight table table-striped table-hover">
@@ -318,7 +318,7 @@
                     {{ wallet_credit.modified | date:"Y-m-d H:i" }}
                 </td>
                 <td>
-                    <a href="{% url 'wallet_credit_edit' id=wallet_credit.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit wallet credit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <a href="{% url 'wallet_credit_edit' id=wallet_credit.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit wallet credit"><i class="fa fas fa-pencil-alt" aria-hidden="true"></i></a>
                 </td>
                 <td>
                     <a href="{% url 'wallet_credit_remove' id=wallet_credit.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Remove wallet credit"><i class="fa fa-times" aria-hidden="true"></i></a>
@@ -338,7 +338,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row mt-4">
     <div class="col-12">
         <h5>Incomes ({{ wallet_incomes.count }} elements)</h5>
         <table class="highlight table table-striped table-hover">
@@ -385,7 +385,7 @@
                     {{ wallet_income.modified | date:"Y-m-d H:i" }}
                 </td>
                 <td>
-                    <a href="{% url 'wallet_income_edit' id=wallet_income.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit wallet income"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <a href="{% url 'wallet_income_edit' id=wallet_income.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit wallet income"><i class="fa fas fa-pencil-alt" aria-hidden="true"></i></a>
                 </td>
                 <td>
                     <a href="{% url 'wallet_income_remove' id=wallet_income.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Remove wallet income"><i class="fa fa-times" aria-hidden="true"></i></a>
@@ -405,7 +405,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row mt-4">
     <div class="col-12">
         <h5>Expenses ({{ wallet_expenses.count }} elements)</h5>
         <table class="highlight table table-striped table-hover">
@@ -449,7 +449,7 @@
                     {{ wallet_expense.modified | date:"Y-m-d H:i" }}
                 </td>
                 <td>
-                    <a href="{% url 'wallet_expense_edit' id=wallet_expense.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit wallet expense"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <a href="{% url 'wallet_expense_edit' id=wallet_expense.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit wallet expense"><i class="fa fas fa-pencil-alt" aria-hidden="true"></i></a>
                 </td>
                 <td>
                     <a href="{% url 'wallet_expense_remove' id=wallet_expense.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Remove wallet expense"><i class="fa fa-times" aria-hidden="true"></i></a>
@@ -469,7 +469,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row mt-4">
     <div class="col-12">
         <h5>House counters ({{ wallet_houses.count }} elements)</h5>
         <table class="highlight table table-striped table-hover">
@@ -503,7 +503,7 @@
                     {{ wallet_house.modified | date:"Y-m-d H:i" }}
                 </td>
                 <td>
-                    <a href="{% url 'wallet_house_edit' id=wallet_house.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit wallet house"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <a href="{% url 'wallet_house_edit' id=wallet_house.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit wallet house"><i class="fa fas fa-pencil-alt" aria-hidden="true"></i></a>
                 </td>
                 <td>
                     <a href="{% url 'wallet_house_remove' id=wallet_house.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Remove wallet house"><i class="fa fa-times" aria-hidden="true"></i></a>
@@ -520,7 +520,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row mt-4">
     <div class="col-12">
         <h5>Cars / motors ({{ wallet_cars.count }} elements)</h5>
         <table class="highlight table table-striped table-hover">
@@ -566,7 +566,7 @@
                     {{ wallet_car.modified | date:"Y-m-d H:i" }}
                 </td>
                 <td>
-                    <a href="{% url 'wallet_car_edit' id=wallet_car.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit wallet car"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <a href="{% url 'wallet_car_edit' id=wallet_car.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit wallet car"><i class="fa fas fa-pencil-alt" aria-hidden="true"></i></a>
                 </td>
                 <td>
                     <a href="{% url 'wallet_car_remove' id=wallet_car.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Remove wallet car"><i class="fa fa-times" aria-hidden="true"></i></a>
