@@ -11,3 +11,24 @@ a:hover {
 a {
   text-decoration: none;
 }
+
+a.btn:active,
+a.btn:visited,
+a.btn:link {
+  color: #ffffff;
+}
+
+a.btn:active,
+a.btn:visited,
+a.btn:link {
+  color: #ffffff;
+}
+
+a.btn:hover,
+a.nav-link:hover {
+  color: #fffc1b !important;
+}
+
+button.btn-warning:hover {
+  color: #2a52be !important;
+}
