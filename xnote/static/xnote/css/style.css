@@ -18,12 +18,20 @@ a.btn:link {
   color: #ffffff;
 }
 
+div.btn > a:active,
+div.btn > a:visited,
+div.btn > a:link,
+div.btn > a:active > i,
+div.btn > a:visited > i,
+div.btn > a:link > i,
 a.btn:active,
 a.btn:visited,
 a.btn:link {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
+div.btn > a:hover,
+div.btn > a:hover > i,
 a.btn:hover,
 a.nav-link:hover {
   color: #fffc1b !important;

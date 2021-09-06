@@ -14,12 +14,12 @@
 
     <div class="row">
         <div class="col-10">
-            <div id="reminders_group_all" style="background-color: #000000; color: #ffffff">
-                Wszystkie
-            </div>
+            <a href="/reminder" type="button" class="btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show all reminders">
+                All
+            </a>
             {% for reminders_group in reminders_groups %}
-            <div id="reminders_group_{{ reminders_group.id }}" style="background-color: {{ reminders_group.color }}; color: #ffffff">
-                {{ reminders_group.name }}
+            <div class="btn btn-dark">
+                <a href="{% url 'reminder_in_group' id=reminders_group.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show reminders in group">{{ reminders_group.name }}</a>
                 <a href="{% url 'reminder_group_edit' id=reminders_group.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit reminder group"><i class="fa fas fa-pencil-alt text-info" aria-hidden="true"></i></a>
                 <a href="{% url 'reminder_group_remove' id=reminders_group.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Remove reminder group"><i class="fa fa-times text-info" aria-hidden="true"></i></a>
             </div>
@@ -31,7 +31,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row mt-4">
         <div class="col-12">
             <table class="highlight table table-striped table-hover">
                  <thead>
