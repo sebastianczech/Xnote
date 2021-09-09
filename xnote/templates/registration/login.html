@@ -2,22 +2,29 @@
 
 {% block title %}Login{% endblock %}
 
+{% load static %}
+
 {% block content %}
 
-  <div class="row center-horizontally-vertically">
-    <h4>Login</h4>
+  <div class="mx-auto pt-5 mt-5" style="max-width: 480px;">
+    <div class="row pb-5">
+      <div class="c12">
+        <img src="{% static 'xnote/img/logo.png' %}" />
+      </div>
+    </div>
+    <h3>Log into Notes</h3>
     <form method="post">
       {% csrf_token %}
 
-      <div class="row">
+      <div class="row pt-4">
         <div class="col-12">
             {% include 'form.html' %}
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-12">
-            <button class="btn waves-effect waves-light" type="submit" name="action">Login</button>
+      <div class="row pt-4">
+        <div class="col-6">
+            <button class="btn btn-warning" type="submit">Sign in</button>
         </div>
       </div>
 
