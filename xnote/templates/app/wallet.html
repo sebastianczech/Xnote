@@ -67,75 +67,55 @@
 </div>
 
 <div id="detailed_analysis_box" class="modal fade">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="row">
-                    <div class="col-10">
-                        <h4>Detailed analysis</h4>
-                    </div>
-                    <div class="col-2">
-                        <a href="#!" data-bs-dismiss="modal"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
-                    </div>
-                </div>
+                <h4 class="modal-title">Detailed analysis</h4>
+                <a href="#!" data-bs-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i></a>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <div class="col-12">
-                        <table>
-                            <tr>
-                                <td>
-                                    <a href="{% url 'wallet_analytics_year_month' %}">Calculate finance state</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="{% url 'wallet_car_year_month' %}">Calculate fuel consumption</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="{% url 'wallet_rent_year_month' %}">Calculate taxes for rent</a>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
+                <table>
+                    <tr>
+                        <td>
+                            <a href="{% url 'wallet_analytics_year_month' %}">Calculate finance state</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="{% url 'wallet_car_year_month' %}">Calculate fuel consumption</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="{% url 'wallet_rent_year_month' %}">Calculate taxes for rent</a>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
 </div>
 
 <div id="wallet_generator_box" class="modal fade">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="row">
-                    <div class="col-8">
-                        <h4>Wallet generators</h4>
-                    </div>
-                    <div class="col-4">
-                        <a href="#!" data-bs-dismiss="modal"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
-                    </div>
-                </div>
+                <h4 class="modal-title">Wallet generators</h4>
+                <a href="#!" data-bs-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i></a>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <div class="col-12">
-                        <table>
-                            <tr>
-                                <td>
-                                    <a href="{% url 'wallet_generator_year_month' year=year month=month %}">New wallet for this month (based on previous month)</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="{% url 'wallet_clear_year_month' year=year month=month %}">Clear this month (remove all elements)</a>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
+                <table>
+                    <tr>
+                        <td>
+                            <a href="{% url 'wallet_generator_year_month' year=year month=month %}">New wallet for this month (based on previous month)</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="{% url 'wallet_clear_year_month' year=year month=month %}">Clear this month (remove all elements)</a>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
