@@ -12,26 +12,26 @@
     </div>
     <div class="col-6 position-relative">
         <div class="position-absolute end-0">
-            <a href="{% url 'wallet_year_month' year=year_prev month=month_prev %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Previous month"><i class="fa fa-chevron-left" aria-hidden="true"></i> {{ year_prev }}/{{ month_prev }}</a>
-            <a href="{% url 'wallet_year_month' year=year_next month=month_next %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Next month">{{ year_next }}/{{ month_next }} <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+            <a href="{% url 'wallet_year_month' year=year_prev month=month_prev %}" class="m-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Previous month"><i class="fa fa-chevron-left" aria-hidden="true"></i> {{ year_prev }}/{{ month_prev }}</a>
+            <a href="{% url 'wallet_year_month' year=year_next month=month_next %}" class="m-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Next month">{{ year_next }}/{{ month_next }} <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
         </div>
     </div>
 </div>
 
 <div class="row mt-4">
     <div class="col-12 position-relative">
-        <a data-bs-toggle="modal" data-bs-target="#detailed_analysis_box" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Detailed analysis"><i class="fas fa-list"></i></a>
-        <a data-bs-toggle="modal" data-bs-target="#wallet_generator_box" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Wallet generators"><i class="fas fa-pencil-alt"></i></a>
+        <a data-bs-toggle="modal" data-bs-target="#detailed_analysis_box"><i class="fas fa-lg fa-list" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Detailed analysis"></i></a>
+        <a data-bs-toggle="modal" data-bs-target="#wallet_generator_box"><i class="fas fa-lg fa-pencil-alt" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Wallet generators"></i></a>
 
         <div class="position-absolute top-0 end-0">
-            <a href="{% url 'wallet_wizard_shopping' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="New shopping"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-            <a href="{% url 'wallet_wizard_refuelling' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="New refuelling"><i class="fa fa-car" aria-hidden="true"></i></a>
-            <a href="{% url 'wallet_wizard_incoming' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="New incoming money"><i class="fas fa-dollar-sign"></i></a>
-            <a href="{% url 'wallet_wizard_crediting' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="New crediting"><i class="fa fa-university" aria-hidden="true"></i></a>
-            <a href="{% url 'wallet_wizard_account_transferring' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="New transfer between accounts"><i class="fa fa-exchange" aria-hidden="true"></i></a>
-            <a href="{% url 'wallet_wizard_depositing' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="New money depositing"><i class="fa fa-credit-card" aria-hidden="true"></i></a>
-            <a href="{% url 'wallet_wizard_deposit_transferring' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="New transfer between account and deposit"><i class="fa fa-ban" aria-hidden="true"></i></a>
-            <a href="{% url 'wallet_wizard_currency_exchange' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="New currency exchange"><i class="fab fa-stack-exchange" aria-hidden="true"></i></a>
+            <a href="{% url 'wallet_wizard_shopping' %}" class="m-1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="New shopping"><i class="fa fa-lg fa-shopping-cart" aria-hidden="true"></i></a>
+            <a href="{% url 'wallet_wizard_refuelling' %}" class="m-1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="New refuelling"><i class="fa fa-lg fa-car" aria-hidden="true"></i></a>
+            <a href="{% url 'wallet_wizard_incoming' %}" class="m-1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="New incoming money"><i class="fas fa-lg fa-dollar-sign"></i></a>
+            <a href="{% url 'wallet_wizard_crediting' %}" class="m-1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="New crediting"><i class="fa fa-lg fa-university" aria-hidden="true"></i></a>
+            <a href="{% url 'wallet_wizard_account_transferring' %}" class="m-1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="New transfer between accounts"><i class="fa fa-lg fa-exchange" aria-hidden="true"></i></a>
+            <a href="{% url 'wallet_wizard_depositing' %}" class="m-1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="New money depositing"><i class="fa fa-lg fa-credit-card" aria-hidden="true"></i></a>
+            <a href="{% url 'wallet_wizard_deposit_transferring' %}" class="m-1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="New transfer between account and deposit"><i class="fa fa-lg fa-ban" aria-hidden="true"></i></a>
+            <a href="{% url 'wallet_wizard_currency_exchange' %}" class="m-1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="New currency exchange"><i class="fab fa-lg fa-stack-exchange" aria-hidden="true"></i></a>
         </div>
     </div>
 </div>
@@ -179,7 +179,7 @@
         <span class="margin-left-right">
             <i class="fa fa-credit-card" aria-hidden="true"></i> {{ wallet_accounts_sum }} zł
         </span>
-        <a href="{% url 'wallet_account_add' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Add wallet account"><i class="fas fa-plus"></i></a>
+        <a href="{% url 'wallet_account_add' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Add wallet account"><i class="fas fa-plus fa-lg"></i></a>
     </div>
 </div>
 
@@ -245,7 +245,7 @@
         <span class="margin-left-right">
             <i class="fa fa-credit-card" aria-hidden="true"></i> {{ wallet_deposits_sum }} zł
         </span>
-        <a href="{% url 'wallet_deposit_add' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Add wallet deposit"><i class="fas fa-plus"></i></a>
+        <a href="{% url 'wallet_deposit_add' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Add wallet deposit"><i class="fas fa-plus fa-lg"></i></a>
     </div>
 </div>
 
@@ -330,7 +330,7 @@
         <span class="margin-left-right">
             <i class="fa fa-credit-card" aria-hidden="true"></i> {{ wallet_credits_sum }} zł
         </span>
-        <a href="{% url 'wallet_credit_add' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Add wallet credit"><i class="fas fa-plus"></i></a>
+        <a href="{% url 'wallet_credit_add' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Add wallet credit"><i class="fas fa-plus fa-lg"></i></a>
     </div>
 </div>
 
@@ -397,7 +397,7 @@
         <span class="margin-left-right">
             <i class="fa fa-credit-card" aria-hidden="true"></i> {{ wallet_incomes_sum }} zł
         </span>
-        <a href="{% url 'wallet_income_add' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Add wallet income"><i class="fas fa-plus"></i></a>
+        <a href="{% url 'wallet_income_add' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Add wallet income"><i class="fas fa-plus fa-lg"></i></a>
     </div>
 </div>
 
@@ -461,7 +461,7 @@
         <span class="margin-left-right">
             <i class="fa fa-credit-card" aria-hidden="true"></i> {{ wallet_expenses_sum }} zł
         </span>
-        <a href="{% url 'wallet_expense_add' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Add wallet expense"><i class="fas fa-plus"></i></a>
+        <a href="{% url 'wallet_expense_add' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Add wallet expense"><i class="fas fa-plus fa-lg"></i></a>
     </div>
 </div>
 
@@ -512,7 +512,7 @@
 </div>
 <div class="row">
     <div class="col-12">
-        <a href="{% url 'wallet_house_add' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Add wallet house"><i class="fas fa-plus"></i></a>
+        <a href="{% url 'wallet_house_add' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Add wallet house"><i class="fas fa-plus fa-lg"></i></a>
     </div>
 </div>
 
@@ -587,7 +587,7 @@
         <span class="margin-left-right">
             <i class="fa fa-percent" aria-hidden="true"></i> {{ wallet_cars_refuelling_100km }} l / 100 km, {{ wallet_cars_refuelling_avg_price }} zł / l
         </span>
-        <a href="{% url 'wallet_car_add' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Add wallet car"><i class="fas fa-plus"></i></a>
+        <a href="{% url 'wallet_car_add' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Add wallet car"><i class="fas fa-plus fa-lg"></i></a>
     </div>
 </div>
 
